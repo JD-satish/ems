@@ -25,7 +25,7 @@ public class EventJpaService implements EventRepository {
     private EventJpaRepository eventJpaRepository;
 
     public ArrayList<Event> getEvents() {
-        List<Event> evenList = eventJpaRepository.findAll();
+        List<Event> eventList = eventJpaRepository.findAll();
         ArrayList<Event> events = new ArrayList<>(eventList);
         return events;
     }
@@ -81,7 +81,7 @@ public class EventJpaService implements EventRepository {
                     sponsor.getEvents().add(newEvent);
                 }
                 sponsorJpaRepository.saveAll(newSponsors);
-                newEvent.setSponsors(newSponors);
+                newEvent.setSponsors(newSponsors);
             }
             return eventJpaRepository.save(newEvent);
         } catch (Exception e) {

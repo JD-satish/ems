@@ -1,13 +1,13 @@
-  package com.example.eventmanagementsystem.model;
+package com.example.eventmanagementsystem.model;
 
-  import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-  
-  import javax.persistence.*;
-  import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-  @Entity
-  @Table(name ="event")
-  public class Event{
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "event")
+public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -21,40 +21,40 @@
 
     @ManyToMany(mappedBy = "events")
     @JsonIgnoreProperties("events")
-    private List<Sponsor>sponsors;
+    private List<Sponsor> sponsors;
 
-    public Event(){
+    public Event() {
     }
 
-    public int getEventId(){
+    public int getEventId() {
         return eventId;
     }
 
-    public void setEventId(int eventId){
+    public void setEventId(int eventId) {
         this.eventId = eventId;
     }
 
-    public String getEventName(){
+    public String getEventName() {
         return eventName;
     }
 
-    public void setEventName(String eventName){
+    public void setEventName(String eventName) {
         this.eventName = eventName;
     }
 
-    public String getDate(){
+    public String getDate() {
         return date;
     }
 
-    public void setDate(String date){
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public List<Sponsor>getSponsors(){
+    public List<Sponsor> getSponsors() {
         return sponsors;
     }
 
-    public void setSponsors(List<Sponsor>sponsors){
+    public void setSponsors(List<Sponsor> sponsors) {
         this.sponsors = sponsors;
     }
-  }
+}
